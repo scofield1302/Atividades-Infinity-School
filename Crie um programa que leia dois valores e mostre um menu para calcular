@@ -1,0 +1,53 @@
+#Crie um programa que leia dois valores e mostre um menu para calcular.
+#1 - Somar
+#2 - Multiplicar
+#3 - Dividir
+#4 - Subtrair
+#5 - Sair do programa
+
+print("Seja bem-vindo(a) a mini calculadora.")
+
+print("Digite o primeiro número:")
+primeiro_numero = int(input())
+print("Digite o segundo número:")
+segundo_numero = int(input())
+
+print("Digite a opção desejada:")
+print("Digite 1 para somar.")
+print("Digite 2 para multiplicar.")
+print("Digite 3 para dividir.")
+print("Digite 4 para subtrair.")
+print("Digite 5 para sair do programa.")
+
+opcao = int(input("Digite a opção."))
+
+while opcao != 1 and opcao != 2 and opcao != 3 and opcao != 4 and opcao != 5:
+    print("Você digitou uma opção inválida")
+    print("Digite a opção desejada:")
+    print("Digite 1 para somar.")
+    print("Digite 2 para multiplicar.")
+    print("Digite 3 para dividir.")
+    print("Digite 4 para subtrair.")
+    print("Digite 5 para sair do programa.")
+    nova_opcao = int(input("Digite a opção."))
+    opcao = nova_opcao
+    
+if opcao == 1:
+    print("Você solicitou somar os valores", primeiro_numero,"e",segundo_numero)
+    print("O resultado é: ", primeiro_numero+segundo_numero)
+    
+elif opcao == 2:
+    print("Você solicitou multiplicar os valores", primeiro_numero,"e",segundo_numero)
+    print("O resultado é: ", primeiro_numero*segundo_numero)    
+
+elif opcao == 3:
+    print("Você solicitou dividir os valores", primeiro_numero,"e",segundo_numero)
+    print("O resultado é: ", primeiro_numero/segundo_numero)   
+
+elif opcao == 4:
+    print("Você solicitou subtrair os valores", primeiro_numero,"e",segundo_numero)
+    print("O resultado é: ", primeiro_numero-segundo_numero)  
+
+elif opcao == 5:
+    print("Você escolheu sair do programa.")
+    
