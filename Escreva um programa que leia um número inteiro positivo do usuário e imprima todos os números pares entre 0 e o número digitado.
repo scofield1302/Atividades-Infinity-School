@@ -1,0 +1,11 @@
+#Escreva um programa que leia um número inteiro positivo do usuário e imprima todos os números pares entre 0 e o número digitado.
+lista = []
+print("Digite um número inteiro e positivo.")
+numero = int(input())
+
+while numero < 0:
+    print("Você digitou um número inválido.")
+    print("Digite um número inteiro e positivo.")
+    numero = int(input())
+lista = list(range(0,numero+1,2))
+print("Os números inteiros e pares entre 0 e ",numero," são: ",lista)
