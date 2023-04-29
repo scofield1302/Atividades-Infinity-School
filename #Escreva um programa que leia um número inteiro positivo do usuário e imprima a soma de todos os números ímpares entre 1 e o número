@@ -1,0 +1,14 @@
+#Escreva um programa que leia um número inteiro positivo do usuário e imprima a soma de todos os números ímpares entre 1 e o número 
+# digitado.
+
+lista = []
+print("Digite um número inteiro e positivo.")
+numero = int(input())
+
+while numero < 0:
+    print("Você digitou um número inválido.")
+    print("Digite um número inteiro e positivo.")
+    numero = int(input())
+lista = list(range(1,numero+1,2))
+print("A lista entre 1 e",numero,"é: ",lista)
+print("A soma desses números é ",sum(lista))
