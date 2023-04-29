@@ -1,0 +1,36 @@
+nome = ""
+senha = ""
+tentativas = 0
+
+print("Digite o seu nome. ")
+nome = input()
+print("Seja bem vindo(a)", {nome}, "você ainda não possui uma senha cadastrada. Vamos cadastrá-la")
+print("Digite uma senha.")
+senha = input()
+print("Senha digitada. Agora confirme-a repetindo a senha: ")
+confirm = input()
+
+while confirm != senha:
+    print("Você digitou uma senha diferente da primeira digitada.")
+    print("Digite novamente a confirmação da senha.")
+    confirm = input()
+print("Excelente. Você definiu a sua senha! Guarde-a bem!")
+print("Para entrar no sistema, digite 1")
+print("Para sair do sistema, digite qualquer outra coisa")
+opcao = int(input())
+
+if opcao == 1:
+    print("Para entrar no sistema, digite a sua senha.")
+    teste = input()
+    while tentativas <3 and teste != senha:
+        tentativas += 1
+        #if teste != senha and tentativas <3:
+        print("Você digitou a senha incorreta. Você tem mais",3-tentativas," tentativas.")
+        teste = input()
+        continue
+        if teste != senha and tentativas ==3:
+            print("Você excedeu o limite de tentativas. Não será possível logar no sistema")
+            break
+    if teste == senha and tentativas <3:
+        print("Seja bem-vindo(a) ao sistema. Senha correta.")
+ 
