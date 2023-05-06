@@ -1,0 +1,53 @@
+#Definir as variáveis utilizadas
+
+volume_litros = 0
+valor_alcool = 1.90
+valor_gasolina = 2.50
+
+#Dar boas vindas ao usuário e perguntar qual combustível deseja
+print("Seja bem vindo ao auto-posto!")
+print("Digite A para informações sobre o abastecimento com Álcool ou G para Gasolina.")
+combustivel = input()
+#Se o usuário digitar uma opção que não seja A ou G, continua pedindo.
+while not combustivel in "ÁáaAgG":
+    print("Você selecionou uma opção inválida.")
+    print("Digite A para informações sobre o abastecimento com Álcool ou G para Gasolina.")
+    combustivel = input()
+#Se o combustível for Álcool, com as possíveis variações de digitação da letra A
+if combustivel in "ÁáaA":
+    print("Você selecionou Álcool. Quantos litros deseja abastecer?")
+    volume_litros = float(input())
+#Se o usuário digitar um possível valor inválido, ou seja, menor que 0 ou maior que 80, vai solicitar que ele digite um valor entre 0 e 80
+    while volume_litros < 0 or volume_litros > 80:
+        print("Voce selecionou um volume inválido de litros.")
+        print("Por favor, digite um valor entre 1 e 80.")
+        volume_litros = float(input())
+#Se a quantidade de litros de álcool for menor ou igual a 20, informa o valor com 3% de desconto.
+    if volume_litros <= 20:
+        valor_litro = round(valor_alcool-(valor_alcool*0.03),2)
+        print(f"Ok. O valor por litro do álcool de R$1.90 por R$ {round(valor_litro,2)}")
+        print(f"O valor total a pagar é de R$ {round(valor_litro*volume_litros,2)}")
+#Se a quantidade de litros de álcool for maior que 20, informa o valor com 5% de desconto.
+    elif volume_litros >20:
+        valor_litro = round(valor_alcool-(valor_alcool*0.05),2)
+        print(f"Ok. O valor por litro do álcool de R$1.90 por R$ {round(valor_litro,2)}")
+        print(f"O valor total a pagar é de R$ {round(valor_litro*volume_litros,2)}")   
+#Se o combustível for Gasolina, com as possíveis variações de digitação da letra G
+elif combustivel in "Gg":
+    print("Você selecionou Gasolina. Quantos litros deseja abastecer?")
+    volume_litros = float(input())
+#Se o usuário digitar um possível valor inválido, ou seja, menor que 0 ou maior que 80, vai solicitar que ele digite um valor entre 0 e 80
+    while volume_litros < 0 or volume_litros > 80:
+        print("Voce selecionou um volume inválido de litros.")
+        print("Por favor, digite um valor entre 1 e 80.")
+        volume_litros = float(input())
+#Se a quantidade de litros de gasolina for menor ou igual a 20, informa o valor com 4% de desconto.
+    if volume_litros <= 20:
+        valor_litro = round((valor_gasolina-(valor_gasolina*0.04)),2)
+        print(f"Ok. O valor por litro da gasolina é de R$2.40 por R$ {round(valor_litro,2)}")
+        print(f"O valor total a pagar é de R$ {round(valor_litro*volume_litros,2)}")
+#Se a quantidade de litros de gasolina for maior que 20, informa o valor com 6% de desconto.
+    elif volume_litros >20:
+        valor_litro = round((valor_gasolina-(valor_gasolina*0.06)),2)
+        print(f"Ok. O valor por litro da gasolina é de R$2.40 por R$ {round(valor_litro,2)}")
+        print(f"O valor total a pagar é de R$ {round(valor_litro*volume_litros,2)}")   
