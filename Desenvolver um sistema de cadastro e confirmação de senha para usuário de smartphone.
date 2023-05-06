@@ -1,24 +1,33 @@
+#Desenvolver um sistema de cadastro e confirmação de senha para usuário de smartphone.
+
+#Criar as variáveis utilizadas e definí-las.
+
 nome = ""
 senha = ""
 tentativas = 0
 
+#Solicito que o usuário digite o seu login e dou uma mensagem de boas vindas, e já peço que o mesmo cadastre uma senha.  Além disso, peço que ele confirme a senha digitada.
 print("Digite o seu nome. ")
 nome = input()
 print("Seja bem vindo(a)", {nome}, "você ainda não possui uma senha cadastrada. Vamos cadastrá-la")
-print("Digite uma senha.")
+print("Escolha uma senha.")
 senha = input()
-print("Senha digitada. Agora confirme-a repetindo a senha: ")
+print("Senha Cadastrada. Agora confirme-a repetindo a senha escolhida: ")
 confirm = input()
 
+#Se a confirmação da senha for diferente da primeira senha cadastrada, o sistema exibe uma mensagem de erro 
+# e solicite que o usuário digite a confirmação igual a senha escolhida.
 while confirm != senha:
     print("Você digitou uma senha diferente da primeira digitada.")
     print("Digite novamente a confirmação da senha.")
     confirm = input()
 print("Excelente. Você definiu a sua senha! Guarde-a bem!")
+#Após a senha definida, o sistema pergunta se o usuário quer entrar no sistema (utilizando as credenciais cadastradas) ou sair.
 print("Para entrar no sistema, digite 1")
 print("Para sair do sistema, digite qualquer outra coisa")
 opcao = int(input())
 
+#Para entrar, o sistema oferece 3 tentativas de erro de senha. Caso o usuário insira as credenciais corretas dentro das 3 tentativas, ele acessa. Caso contrário, ele sai.
 if opcao == 1:
     print("Para entrar no sistema, digite a sua senha.")
     teste = input()
@@ -33,4 +42,6 @@ if opcao == 1:
             break
     if teste == senha and tentativas <3:
         print("Seja bem-vindo(a) ao sistema. Senha correta.")
- 
+        
+        #Sugestão de melhoria: criar uma lista de usuários cadastrados e inserir o usuário (Com a senha) nessa lista e depois buscar
+        # os usuários cadastrados nessa lista. Caso encontre, peça a senha.
