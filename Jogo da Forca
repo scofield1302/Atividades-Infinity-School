@@ -1,10 +1,10 @@
 import random
+from termcolor import colored
 
 lista_palavras = ['BOLA',"MACACO",'SELVA','FLOR','AMOR','FLAUTA',"ESPELHO","LIVRO"]
 letras_acertadas = []
 Palavra_sorteada = random.choice(lista_palavras)
 palavra_real = []
-
 print("Jogo da Forca. A palavra a ser adivinhada contém",len(Palavra_sorteada)," letras. Vamos ver se você adivinha.")
 print(Palavra_sorteada)
 palavra_real.extend(['_'] * len(Palavra_sorteada))
@@ -29,16 +29,12 @@ while len(letras_acertadas) < len(Palavra_sorteada):
             letra = ""
             continue
         else:
-            print("A palavra secreta não contém a letra ", letra,".")
+            print(colored("A palavra secreta não contém a letra ", 'red'), letra,".")
             letra = ""
             continue
     else:
-     print("Por favor, digite apenas uma letra. Tente novamente.")
+        print(colored("Por favor, digite apenas uma letra. Tente novamente.", 'red'))
     continue
 
 else:
     print("Você acertou todas as letras. A palavra secreta é ", Palavra_sorteada)
-
-
-
-        
