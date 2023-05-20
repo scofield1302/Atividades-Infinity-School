@@ -1,0 +1,44 @@
+import random
+
+lista_palavras = ['BOLA',"MACACO",'SELVA','FLOR','AMOR','FLAUTA',"ESPELHO","LIVRO"]
+letras_acertadas = []
+Palavra_sorteada = random.choice(lista_palavras)
+palavra_real = []
+
+print("Jogo da Forca. A palavra a ser adivinhada contém",len(Palavra_sorteada)," letras. Vamos ver se você adivinha.")
+print(Palavra_sorteada)
+palavra_real.extend(['_'] * len(Palavra_sorteada))
+
+
+   
+while len(letras_acertadas) < len(Palavra_sorteada):
+    print(palavra_real)
+    letra = input("Digite uma letra \n").upper()
+    if letra.isalpha() and len(letra) == 1:
+        if letra in Palavra_sorteada:
+            letras_acertadas.append(letra)
+            print("Você acertou a letra", letra)
+            if Palavra_sorteada.count(letra) > 1:
+                for i in range(len(Palavra_sorteada)):
+                    if Palavra_sorteada[i] == letra:
+                        palavra_real[i] = letra
+                        letras_acertadas.append(letra)
+            else:
+                posicao = Palavra_sorteada.index(letra)
+                palavra_real[posicao] = letra
+            letra = ""
+            continue
+        else:
+            print("A palavra secreta não contém a letra ", letra,".")
+            letra = ""
+            continue
+    else:
+     print("Por favor, digite apenas uma letra. Tente novamente.")
+    continue
+
+else:
+    print("Você acertou todas as letras. A palavra secreta é ", Palavra_sorteada)
+
+
+
+        
