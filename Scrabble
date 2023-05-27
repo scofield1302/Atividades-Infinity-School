@@ -1,0 +1,109 @@
+from termcolor import colored
+import unidecode
+
+pontos = {
+    'A': 1,
+    'E': 1,
+    'I': 1,
+    'O': 1,
+    'U': 1,
+    'M': 1,
+    'R': 1,
+    'T': 1,
+    'D': 2,
+    'L': 2,
+    'C': 2,
+    'P': 2,
+    'N': 3,
+    'B': 3,
+    'Ç': 3,
+    'F': 4,
+    'G': 4,
+    'H': 4,
+    'V': 4,
+    'J': 5,
+    'Q': 6,
+    'X': 8,
+    'Z': 8
+}
+
+pontos_ing = {
+    'A': 1,
+    'E': 1,
+    'I': 1,
+    'O': 1,
+    'U': 1,
+    'L': 1,
+    'N': 1,
+    'S': 1,
+    'T': 1,
+    'R': 1,
+    'D': 2,
+    'G': 2,
+    'B': 3,
+    'C': 3,
+    'M': 3,
+    'P': 3,
+    'F': 4,
+    'H': 4,
+    'V': 4,
+    'W': 4,
+    'Y': 4,
+    'K': 5,
+    'J': 8,
+    'X': 8,
+    'Q': 10,
+    'Z': 10,
+    ' ': 0,
+}
+
+pontos_player1 = 0
+pontos_player2 = 0
+
+print("Bem-vindo(a) ao Scrabble. Jogo de palavras com 2 jogadores.")
+
+print(colored("Jogador(a) 1. Cor Azul",'blue'))
+print(colored("Jogador(a) 2. Cor Amarelo",'yellow'))
+print("Vamos começar!")
+print(colored("Jogador(a) 1. Digite uma palavra:",'blue'))
+palavra_player1 = input()
+palavra_player1 = unidecode.unidecode(palavra_player1)  # Remover acentos do jogador 1
+while any(chr.isdigit() for chr in palavra_player1) == True:
+    print(colored("Você informou uma palavra com números. Por favor, tente novamente digitando apenas letras.",'red'))
+    print(colored("Jogador(a) 1. Digite uma palavra:",'blue'))
+    palavra_player1 = input()
+    palavra_player1 = unidecode.unidecode(palavra_player1)  # Remover acentos do jogador 1
+    continue
+else:    
+    print("Palavra recebida.")
+    print(colored("Jogador(a) 2.",'yellow'))
+    print(colored("Digite uma palavra.",'yellow'))
+
+    palavra_player2 = input()
+    palavra_player2 = unidecode.unidecode(palavra_player2)  # Remover acentos do jogador 2
+    
+while any(chr.isdigit() for chr in palavra_player2) == True:
+    print(colored("Você informou uma palavra com números. Por favor, tente novamente digitando apenas letras.",'red'))
+    print(colored("Jogador(a) 2. Digite uma palavra:",'yellow'))
+    palavra_player2 = input()
+    palavra_player2 = unidecode.unidecode(palavra_player2)  # Remover acentos do jogador 1
+    continue
+else:   
+    
+    print("Palavra recebida.")
+
+    for i in palavra_player1:
+        pontos_player1 += pontos[i.upper()]
+
+    for i in palavra_player2:
+        pontos_player2 += pontos[i.upper()]
+
+    print("Jogador(a) 1 Fez:", pontos_player1, "pontos.")
+    print("Jogador(a) 2 Fez:", pontos_player2, "pontos.")
+    if pontos_player1 == pontos_player2:
+        print(colored("Houve um empate.",'red'))
+    elif pontos_player1 > pontos_player2:
+        print("Jogador(a) 1 Venceu.")
+    else:
+        print("Jogador(a) 2 Venceu.")
+ 
