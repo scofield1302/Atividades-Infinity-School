@@ -1,0 +1,11 @@
+#Crie uma função que pede 3 números inteiros e mostra o dobro dos 3, fora da função.
+
+
+def dobro(a):
+    return a*2
+numeros = []
+for i in range(3):
+    numero = int(input(f' Digite um número para saber o seu dobro.'))
+    numeros.append(numero)
+for i in range(3):
+    print(f' O dobro de {numeros[i]} é: {dobro(numeros[i])}')
