@@ -1,7 +1,8 @@
 #Um programa que pede o valor de um produto e um percentual de desconto e aplica o desconto e mostra o valor final. Para o cálculo, deve usar função.
-
-valor_Produto = float(input(f' Informe o valor do produto.'))
-percentual_desconto = float(input(f' Informe o percentual do desconto.'))/100
+valor_Produto_antigo = input(f' Informe o valor do produto.').replace(",",".")
+valor_Produto = float(valor_Produto_antigo)
+percentual_desconto = input(f' Informe o percentual do desconto.').replace("%","").replace(",",".")
+percentual_desconto = float(percentual_desconto)/100
 def desconto(a:float,b:float):
     return(a-(a*b))
 print(f' O valor total do produto com desconto é de R$ {desconto(valor_Produto,percentual_desconto)}')
