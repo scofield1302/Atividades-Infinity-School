@@ -1,0 +1,73 @@
+class Produto:
+    '''
+    Começa definindo a classe com __init__, define os parâmetros e  tipos
+    para deixar o parâmetro protegido, insere o dunderline (ex. self.__preco, em vez de self.preco)
+    '''
+    def __init__(self,nome: str, valor: float, categoria: str, descricao: str):
+        self.nome:str = nome
+        self.__preco:float = valor
+        self.__categoria:str = categoria
+        self.descricao:str = descricao
+    '''
+    Usa-se property para obter o valor, que nesse exemplo é o preço
+    '''
+    @property
+    def preco(self) -> float:
+        #Retorna o preço atual
+        return self.__preco
+    '''
+    Usa-se o setter para alterar o valor obtido, que nesse exemplo é o preço e já fazemos as tratativas de erro
+    '''
+    @preco.setter
+    def preco(self,novopreco: float) -> float:
+        #Altera o preço
+        if novopreco > 0:
+            self.__preco = novopreco
+        else:
+            f'O novo valor não é úm número.'
+            self.__preco = novopreco
+        return self.preco
+    '''
+    Usa-se o Property para obter o valor obtido, que nesse exemplo é a categoria 
+    '''    
+    @property
+    def categoria(self) -> str:
+        #Retorna a categoria
+        return self.__categoria
+    '''
+    Usa-se o setter alterar o valor obtido anteriormente 
+    '''    
+    @categoria.setter
+    def categoria(self, novacategroia: str) -> str:
+        self.__categoria = novacategroia
+        return f' {self.nome} teve a sua categoria alterada com sucesso!'
+    '''
+    Agora criamos um método para atualizar o preço 
+    '''       
+    def reajustar(self, percentual: float) -> str:
+        'reajusta o preço'
+        self.preco = self.preco + self.preco * (percentual / 100)
+        print(f' {self.nome} teve seu preço reajustado em {percentual:.2f}%')
+        return f' {self.nome} teve seu preço reajustado em {percentual:.2f}%'
+    
+nome = input (f" Digite o nome do produto 1")
+valor = input (f" Digite o preço do produto 1")
+while not valor.replace(',','').replace('.','').isdigit() or float(valor.replace(',','.')) <0:
+    print('Você informou um valor não numérico ou um valor abaixo de 0.')
+    valor = input (" Digite o preço do produto 1")
+valor = float(valor.replace(',','.'))
+categoria = input (" Digite o nome da categoria")
+descricao = input (" Digite a descrição do Produto")
+
+Produto1 = Produto (nome,valor,categoria,descricao)
+
+print(Produto1.__dict__)
+percent = input (f" Digite o percentual de reajuste do produto 1")
+while not percent.replace(',','').replace('.','').isdigit() or float(percent) <0:
+    print('Você informou um valor não numérico ou um valor abaixo de 0.')
+    percent = input (" Digite o percentual de reajuste do produto 1")
+percent = float(percent)
+
+Produto1.reajustar(percent)
+
+print(Produto1.__dict__)
